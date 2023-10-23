@@ -1,5 +1,14 @@
 from random import choice
 
-anime = ["naruto", "hayku", "mushishi", "bleach", "one piece"]
+anime = [
+    ["naruto", "hype", "long", "series"],
+    ["hayku", "sports", "short", "series"],
+    ["bleach", "hype", "medium", "series"],
+    ["one piece", "adventure", "long", "series"],
+]
 
-print(choice(anime))
+mood = input("enter your mood: ")
+
+for item in anime:
+    if item[1] == mood:
+        print(mood + " anime: " + item[0])
