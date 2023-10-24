@@ -1,14 +1,13 @@
-from random import choice
+import requests
 
-anime = [
-    ["naruto", "hype", "long", "series"],
-    ["hayku", "sports", "short", "series"],
-    ["bleach", "hype", "medium", "series"],
-    ["one piece", "adventure", "long", "series"],
-]
+for anime_id in range(1, 1000):
+    url = f"https://api.jikan.moe/v4/anime/{anime_id}/full"
+    response = requests.get(url)
 
-mood = input("enter your mood: ")
+    if response.status_code == 200:
+        anime_data = response.json()["data"]["titles"]
 
-for item in anime:
-    if item[1] == mood:
-        print(mood + " anime: " + item[0])
+        print(anime_data)
+
+    else:
+        continue
